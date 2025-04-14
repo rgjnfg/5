@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+    char letter;
+    int position = -1;
+    printf("Введите букву: ");
+    scanf("%c", &letter);
+    if ((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z')) {
+        if (letter >= 'A' && letter <= 'Z') {
+            letter = letter - 'A' + 'a';
+        }
+        for (int i = 0; i < strlen(alphabet); i++) {
+            if (alphabet[i] == letter) {
+                position = i + 1; // +1 потому что позиции считаются с 1
+                break;
+            }
+        }
+
+        printf("Буква '%c' находится на позиции %d в алфавите\n", letter, position);
+    } else {
+        printf("'%c' не является буквой английского алфавита\n", letter);
+    }
+
+    return 0;
+}
